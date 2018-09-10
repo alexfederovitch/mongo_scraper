@@ -1,0 +1,60 @@
+{{!-- <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">
+        <img alt="Brand" src="...">
+      </a>
+    </div>
+    <ul>
+        <li>Home</li>
+        <li><a href="/saved">Saved Articles</a></li>
+        <li><a class='btn btn-danger new-scrape'>SCRAPE NEW ARTICLES</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="jumbotron">
+  <div class="container">
+    ...
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-body">
+    Panel content
+  </div>
+  <div class="panel-footer">Panel footer</div>
+</div> --}}
+
+<!--Homepage-->
+<div class="container">
+    <div class="col-md-12 jumbotron">
+        <div class="text-center">
+            <h1>New York Times Mongo Scraper</h1>
+        </div>
+
+    </div>
+    <div class="col-md-12">
+        {{#if article}}
+            {{#each article}}
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4>{{this.title}}</h4>
+                </div>
+                <div class="panel-body">
+                    <p> {{this.summary}}</p>
+                    <a href={{this.link}} target="_blank">{{this.link}}</a>
+                    <br><br>
+                    <button type="button" class="btn btn-success save" data-id={{this._id}}>Save Article</button>
+                </div>
+            </div>
+            {{/each}}
+        {{else}}
+        <div class="panel panel-default">
+            <div class="panel-body">
+            <h4>Uh Oh. Looks like we don't have any new articles.</h4>
+            </div>
+         </div>
+        {{/if}}
+    </div>
+</div>
